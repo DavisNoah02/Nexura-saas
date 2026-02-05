@@ -8,8 +8,8 @@ export default function FeaturesSection() {
                 <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
                     <div className="lg:col-span-2">
                         <div className="md:pr-6 lg:pr-0">
-                            <h2 className="text-4xl font-semibold lg:text-5xl">Built for Scaling teams</h2>
-                            <p className="mt-6">Orrupti aut temporibus assumenda atque ab, accusamus sit, molestiae veniam laboriosam pariatur.</p>
+                            <h2 className="text-4xl font-semibold lg:text-5xl">Built for Scaling and Boosting Business</h2>
+                            <p className="mt-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores itaque eum nam aliquam ipsum ipsam rerum dolores voluptate similique fuga sit ipsa, quidem sed qui vel ut distinctio totam.</p>
                         </div>
                         <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
                             <li>

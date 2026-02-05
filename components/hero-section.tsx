@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
-import { HeroHeader } from './header'
+import { HeroHeader } from '@/components/layout/header'
 
 const transitionVariants = {
     item: {
@@ -110,7 +110,7 @@ export default function HeroSection() {
                                     speedSegment={0.3}
                                     as="h1"
                                     className="mx-auto mt-8 max-w-4xl text-balance text-5xl max-md:font-semibold md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                    Modern Solutions for Your Business Needs
+                                    Modern Solutions for Your  AI   Business Needs
                                 </TextEffect>
                                 <TextEffect
                                     per="line"
