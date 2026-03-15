@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Settings, User } from "lucide-react";
+import { LayoutDashboard, Settings, User, CreditCard, Info } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
 import ToggleButton from "@/components/layout/theme-toggle-btn";
@@ -12,6 +12,9 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/pricing", label: "Pricing", icon: CreditCard },
+  { href: "/about", label: "About", icon: Info },
+
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {

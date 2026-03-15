@@ -1,7 +1,7 @@
-## SaaS App – Next.js App Router Frontend
+## Nexura-SaaS App - Next.js App Router Frontend
 
 This repository is a **Next.js App Router** frontend for a SaaS product.  
-Today it ships a **highly–styled marketing site**, but the structure is designed to grow into a full SaaS app with **auth, dashboard, and billing** using the existing tech stack.
+Today it ships a **highly-styled marketing site**, but the structure is designed to grow into a full SaaS app with **auth, dashboard, and billing** using the existing tech stack.
 
 ---
 
@@ -23,7 +23,7 @@ Today it ships a **highly–styled marketing site**, but the structure is design
   - `next-themes` for light/dark/system theme
   - Custom `ThemeProvider` and toggle button in `components/layout`
 - **Animation**:
-  - `motion` for animations (React 19–compatible)
+  - `motion` for animations (React 19-compatible)
   - Tailwind `tw-animate-css` utilities
 - **Tooling**:
   - ESLint `9` + `eslint-config-next`
@@ -37,17 +37,20 @@ Today it ships a **highly–styled marketing site**, but the structure is design
 saas-app/
   app/
     (marketing)/           # Public marketing routes
-      page.tsx             # Landing page (current home)
-      pricing/page.tsx     # Pricing (stub)
+      page.tsx             # Landing page (/)
+      pricing/page.tsx     # Pricing (/pricing)
+      about/page.tsx       # About (/about)
     (app)/                 # Authenticated SaaS app (dashboard, etc.)
-      layout.tsx           # App shell layout (stub)
-      dashboard/page.tsx   # Dashboard (stub)
+      layout.tsx           # App shell layout
+      dashboard/page.tsx   # Dashboard (/dashboard)
+      settings/page.tsx    # Settings (/settings)
     (auth)/                # Auth routes
-      sign-in/page.tsx     # Sign in (stub)
+      sign-in/page.tsx     # Sign in (/sign-in)
+      sign-up/page.tsx     # Sign up (/sign-up)
+      forgot-password/page.tsx # Forgot password (/forgot-password)
     favicon.ico
     globals.css
     layout.tsx             # Root layout, fonts, ThemeProvider
-    page.tsx               # Re-exports (marketing)/page as "/"
 
   components/
     layout/                # Layout-level components
@@ -95,15 +98,15 @@ npm start
 ```
 
 Then open `http://localhost:3000` in your browser.  
-The root path `/` renders `app/(marketing)/page.tsx` through `app/page.tsx`.
+The root path `/` is served by `app/(marketing)/page.tsx` (route groups do not change the URL).
 
 ---
 
 ## How the client-side is organized
 
 - **Routing**
-  - **Marketing** pages live under `app/(marketing)/*` (e.g. `/`, `/pricing`).
-  - **App** pages will live under `app/(app)/*` (e.g. `/dashboard`).
+  - **Marketing** pages live under `app/(marketing)/*` (e.g. `/`, `/pricing`, `/about`).
+  - **App** pages live under `app/(app)/*` (e.g. `/dashboard`, `/settings`).
   - **Auth** pages live under `app/(auth)/*` (e.g. `/sign-in`).
   - `app/layout.tsx` sets up global fonts, theme provider, and global styles.
 
@@ -154,29 +157,5 @@ The structure is already set up to support:
 
 ---
 
-## Recommended libraries to consider next
 
-You already have a strong base. Here are **optional** additions that fit well with the current stack:
-
-- **Authentication**
-  - [`next-auth` / Auth.js](https://authjs.dev/) – session-based auth with providers and database adapters.
-  - Or a hosted solution like **Clerk** or **Auth0** if you prefer managed auth.
-
-- **Forms & validation**
-  - [`react-hook-form`](https://react-hook-form.com/) – performant controlled/uncontrolled forms.
-  - [`zod`](https://zod.dev/) – TypeScript-first runtime validation, great for validating form data and server actions.
-
-- **Client-side data & caching**
-  - [`@tanstack/react-query`](https://tanstack.com/query/latest) – if/when you have client-side mutations and queries (e.g. dashboard widgets) that need caching and optimistic updates.
-
-- **State management (beyond React context)**
-  - [`zustand`](https://github.com/pmndrs/zustand) – simple, lightweight store for cross-page UI state (filters, layout prefs, etc.).
-
-- **Analytics / product metrics**
-  - **Plausible**, **PostHog**, or **Vercel Analytics** to understand user behavior once the SaaS dashboard is live.
-
-- **Date & time utilities**
-  - [`date-fns`](https://date-fns.org/) – lightweight utilities for formatting and manipulating dates in dashboards, billing, etc.
-
-None of these are required to use the project as-is, but they are good fits for the **Next.js + Tailwind + Radix** stack and will help as you evolve from a marketing site into a full SaaS product.
 

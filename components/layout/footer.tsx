@@ -292,7 +292,7 @@ export default function FooterSection() {
                 <Button size="sm">Submit</Button>
               </div>
               <span className="text-muted-foreground block text-sm">
-                Don't miss any update!
+                Don&apos;t miss any update!
               </span>
             </div>
           </form>

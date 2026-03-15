@@ -3,10 +3,10 @@
 An ordered list of small, low-risk refactors to move toward the target SaaS architecture.
 
 1. **Routes into groups**  
-   - Keep the root entry in `app/page.tsx` but delegate to `app/(marketing)/page.tsx`.  
-   - Add new marketing routes like `app/(marketing)/pricing/page.tsx`.  
-   - Add `app/(app)/layout.tsx` and `app/(app)/dashboard/page.tsx` for the future authenticated area.  
-   - Add `app/(auth)/sign-in/page.tsx` as the starting point for auth flows.
+   - The app already uses route groups: `app/(marketing)`, `app/(app)`, and `app/(auth)`.
+   - Keep public pages in `app/(marketing)` (for example, `app/(marketing)/page.tsx`, `app/(marketing)/pricing/page.tsx`).
+   - Keep authenticated pages in `app/(app)` (for example, `app/(app)/dashboard/page.tsx`, `app/(app)/settings/page.tsx`).
+   - Keep auth flows in `app/(auth)` (for example, `app/(auth)/sign-in/page.tsx`).
 
 2. **Move layout primitives**  
    - Keep all global layout components in `components/layout` (`header`, `footer`, `logo`, theme provider/toggle).  

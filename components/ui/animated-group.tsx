@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable react-hooks/static-components */
 import { ReactNode } from 'react';
 import { motion, Variants } from 'motion/react';
 import React from 'react';
@@ -26,6 +27,28 @@ export type AnimatedGroupProps = {
   as?: React.ElementType;
   asChild?: React.ElementType;
 };
+
+const motionTagCache = new Map<string, React.ElementType>();
+const motionElementCache = new WeakMap<object, React.ElementType>();
+
+function getMotionElement(element: React.ElementType): React.ElementType {
+  if (typeof element === 'string') {
+    const cached = motionTagCache.get(element);
+    if (cached) return cached;
+
+    const created = motion.create(element as keyof JSX.IntrinsicElements);
+    motionTagCache.set(element, created);
+    return created;
+  }
+
+  const key = element as unknown as object;
+  const cached = motionElementCache.get(key);
+  if (cached) return cached;
+
+  const created = motion.create(element);
+  motionElementCache.set(key, created);
+  return created;
+}
 
 const defaultContainerVariants: Variants = {
   visible: {
@@ -115,14 +138,8 @@ function AnimatedGroup({
   const containerVariants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
 
-  const MotionComponent = React.useMemo(
-    () => motion.create(as as keyof JSX.IntrinsicElements),
-    [as]
-  );
-  const MotionChild = React.useMemo(
-    () => motion.create(asChild as keyof JSX.IntrinsicElements),
-    [asChild]
-  );
+  const MotionComponent = getMotionElement(as);
+  const MotionChild = getMotionElement(asChild);
 
   return (
     <MotionComponent
