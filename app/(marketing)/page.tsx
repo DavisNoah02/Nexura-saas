@@ -5,6 +5,7 @@ import ContentSection from "@/components/content-2";
 import CallToAction from "@/components/call-to-action";
 import Footer from "@/components/layout/footer";
 import FAQsThree from "@/components/faqs-3";
+import StatsSection from "@/components/stats-2";
 
 export default function MarketingHome() {
   return (
@@ -14,6 +15,7 @@ export default function MarketingHome() {
       <IntegrationsSection />
       <ContentSection />
       <FAQsThree />
+      <StatsSection />
       <CallToAction />
       <Footer />
     </main>

@@ -36,7 +36,7 @@ function getMotionElement(element: React.ElementType): React.ElementType {
     const cached = motionTagCache.get(element);
     if (cached) return cached;
 
-    const created = motion.create(element as keyof JSX.IntrinsicElements);
+    const created = motion.create(element);
     motionTagCache.set(element, created);
     return created;
   }
