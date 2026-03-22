@@ -102,6 +102,15 @@ The root path `/` is served by `app/(marketing)/page.tsx` (route groups do not c
 
 ---
 
+## Docs
+
+- `docs/WORKFLOW.md` — local workflow + architecture boundaries
+- `docs/TESTING.md` — unit test strategy + Jest usage
+- `docs/structure-migrations.md` — refactor roadmap
+- `docs/IMPROVEMENTS.md` — production hardening checklist
+
+---
+
 ## How the client-side is organized
 
 - **Routing**
@@ -156,6 +165,3 @@ The structure is already set up to support:
   - Wire this up to your AI provider (OpenAI, Anthropic, local models, etc.) so the rest of the app stays provider-agnostic.
 
 ---
-
-
-
